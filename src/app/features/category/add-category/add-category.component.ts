@@ -1,13 +1,15 @@
 import { Component} from '@angular/core';
 import { AddCategoryRequest } from '../models/add-category-request.model';
 import { categoryActions, endPoints, IPayloadApi, StoreRepoService, URLs } from 'src/app/core';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
     selector: 'app-add-category',
     templateUrl: './add-category.component.html',
     styleUrls: ['./add-category.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [FormsModule]
 })
 export class AddCategoryComponent {
   model: AddCategoryRequest;

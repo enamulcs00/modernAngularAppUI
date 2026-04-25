@@ -6,12 +6,19 @@ import { CategoryService } from '../../category/services/category.service';
 import { Observable, Subscription } from 'rxjs';
 import { Category } from '../../category/models/category.model';
 import { ImageService } from 'src/app/shared/components/image-selector/image.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MarkdownModule } from 'ngx-markdown';
+import { ImageSelectorComponent } from 'src/app/shared';
 
 @Component({
     selector: 'app-add-blogpost',
     templateUrl: './add-blogpost.component.html',
     styleUrls: ['./add-blogpost.component.scss'],
-    standalone: false
+    standalone: true,
+    imports: [
+      CommonModule ,FormsModule ,MarkdownModule ,ImageSelectorComponent
+    ]
 })
 export class AddBlogpostComponent implements OnInit, OnDestroy {
   model: AddBlogPost;

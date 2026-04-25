@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { BaseModel } from '..';
+import { BaseModel } from '../models/general';
 
 export interface GenericActions<T extends BaseModel> {
   load: ReturnType<typeof createAction>;
@@ -21,28 +21,22 @@ export interface GenericActions<T extends BaseModel> {
   select: ReturnType<typeof createAction<string, { id: string }>>;
 }
 
-export function createGenericActions<T extends BaseModel>(feature: string): GenericActions<T> {
-  return {
-    load: createAction(`[${feature}] Load`),
-    loadSuccess: createAction(`[${feature}] Load Success`, props<{ items: T[] }>()),
-    loadFailure: createAction(`[${feature}] Load Failure`, props<{ error: string }>()),
-    
-    loadById: createAction(`[${feature}] Load By Id`, props<{ id: string }>()),
-    loadByIdSuccess: createAction(`[${feature}] Load By Id Success`, props<{ item: T }>()),
-    loadByIdFailure: createAction(`[${feature}] Load By Id Failure`, props<{ error: string }>()),
-
-    create: createAction(`[${feature}] Create`, props<{ item: T }>()),
-    createSuccess: createAction(`[${feature}] Create Success`, props<{ item: T }>()),
-    createFailure: createAction(`[${feature}] Create Failure`, props<{ error: string }>()),
-    
-    update: createAction(`[${feature}] Update`, props<{ item: T }>()),
-    updateSuccess: createAction(`[${feature}] Update Success`, props<{ item: T }>()),
-    updateFailure: createAction(`[${feature}] Update Failure`, props<{ error: string }>()),
-    
-    delete: createAction(`[${feature}] Delete`, props<{ id: string }>()),
-    deleteSuccess: createAction(`[${feature}] Delete Success`, props<{ id: string }>()),
-    deleteFailure: createAction(`[${feature}] Delete Failure`, props<{ error: string }>()),
-    setSearchTerm: createAction(`[${feature}] Set Search Term`, props<{ searchTerm: string }>()),
-    select: createAction(`[${feature}] Select`, props<{ id: string }>()),
-  };
-}
+export const createGenericActions = <T extends BaseModel>(feature: string): GenericActions<T> => ({
+  load: createAction(`[${feature}] Load`),
+  loadSuccess: createAction(`[${feature}] Load Success`, props<{ items: T[] }>()),
+  loadFailure: createAction(`[${feature}] Load Failure`, props<{ error: string }>()),
+  loadById: createAction(`[${feature}] Load By Id`, props<{ id: string }>()),
+  loadByIdSuccess: createAction(`[${feature}] Load By Id Success`, props<{ item: T }>()),
+  loadByIdFailure: createAction(`[${feature}] Load By Id Failure`, props<{ error: string }>()),
+  create: createAction(`[${feature}] Create`, props<{ item: T }>()),
+  createSuccess: createAction(`[${feature}] Create Success`, props<{ item: T }>()),
+  createFailure: createAction(`[${feature}] Create Failure`, props<{ error: string }>()),
+  update: createAction(`[${feature}] Update`, props<{ item: T }>()),
+  updateSuccess: createAction(`[${feature}] Update Success`, props<{ item: T }>()),
+  updateFailure: createAction(`[${feature}] Update Failure`, props<{ error: string }>()),
+  delete: createAction(`[${feature}] Delete`, props<{ id: string }>()),
+  deleteSuccess: createAction(`[${feature}] Delete Success`, props<{ id: string }>()),
+  deleteFailure: createAction(`[${feature}] Delete Failure`, props<{ error: string }>()),
+  setSearchTerm: createAction(`[${feature}] Set Search Term`, props<{ searchTerm: string }>()),
+  select: createAction(`[${feature}] Select`, props<{ id: string }>()),
+});

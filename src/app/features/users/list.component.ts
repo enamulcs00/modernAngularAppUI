@@ -34,7 +34,7 @@ export class ListComponent implements OnInit {
       this.users$ = this._service.getAll(param);
     }
     deleteUser(id:string):void {      
-      this._service.delete(id , userActions,endPoints.users.url);
+      // this._service.delete(id , userActions,endPoints.users.url);
       // this.users$ = this._service.getAll(endPoints.users.url , false , userActions, 'users');
 
     }

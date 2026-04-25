@@ -1,8 +1,7 @@
-import { BaseModel } from "..";
+import { EntityState, createEntityAdapter } from '@ngrx/entity';
+import { BaseModel } from '../models/general';
 
-export interface GenericState<T extends BaseModel> {
-  entities: { [key: string]: T };
-  ids: string[];
+export interface GenericState<T extends BaseModel> extends EntityState<T> {
   loading: boolean;
   loaded: boolean;
   error: string | null;
@@ -10,12 +9,13 @@ export interface GenericState<T extends BaseModel> {
   searchTerm: string;
 }
 
-export const initialGenericState = {
-  entities: {},
-  ids: [],
-  loading: false,
-  loaded:false,
-  error: null,
-  selectedId: null,
-  searchTerm: '',
+export const createInitialState = <T extends BaseModel>(): GenericState<T> => {
+  const adapter = createEntityAdapter<T>();
+  return adapter.getInitialState({
+    loading: false,
+    loaded: false,
+    error: null,
+    selectedId: null,
+    searchTerm: ''
+  });
 };

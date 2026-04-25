@@ -67,9 +67,6 @@ export class EmptyStateComponent implements AfterContentInit{
   @Input() title = 'No items found';
   @Input() description = 'There are no items to display at the moment.';
 @ContentChild('contentPara') para!: ElementRef;
-  sayAlert(){
-    alert('Hello from Empty State Component!');
-  }
   ngAfterContentInit() {
   console.log(this.para);
 }

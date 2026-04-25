@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit , AfterViewInit{
   }
   SetValue(num:number):void {
 
-    this.serv.setUser( { id: '1'+num++, firstName: 'zahaz', email:'enamulcs008@gmail.com'});
+    // this.serv.setUser( { id: '1'+num++, firstName: 'zahaz', email:'enamulcs008@gmail.com'});
   
   }
   ngOnInit(): void {
@@ -75,11 +75,11 @@ observable.subscribe({
 });
 console.log('just after subscribe');
 
-    this.serv.getUser().subscribe(user=>{
-      console.log('user from subject',user);
-    });
+    // this.serv.getUser().subscribe(user=>{
+    //   console.log('user from subject',user);
+    // });
     
-    console.log(this.group(),'current', this.serv.getCurrentUser());
+    // console.log(this.group(),'current', this.serv.getCurrentUser());
     
     let param:IGetApi<BlogPost> = {
                     endPoint:endPoints.blogPost.url,
@@ -118,7 +118,6 @@ console.log('Group',output);
         alert(`You clicked on ${target.textContent}`);
       }
     });
-    this.emptyStateComponent.sayAlert();
   }
    group(): any {
         let input = [

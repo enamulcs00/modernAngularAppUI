@@ -2,12 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, take } from 'rxjs';
 import { BlogPost } from '../../blog-post/models/blog-post.model';
+import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown';
 
 @Component({
     selector: 'app-blog-details',
     templateUrl: './blog-details.component.html',
     styleUrls: ['./blog-details.component.scss'],
-    standalone: false
+     standalone: true,
+  imports: [
+    CommonModule ,MarkdownModule  
+  ]
 })
 export class BlogDetailsComponent implements OnInit {
   objId: string | null = null;

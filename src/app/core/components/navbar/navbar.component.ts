@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { User, dropDownMenuItems } from 'src/app/features/auth/models/user.model';
 import { AuthService } from 'src/app/features/auth/services/auth.service';
 import { config } from '../config';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-navbar',

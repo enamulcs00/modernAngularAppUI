@@ -5,14 +5,16 @@ import { CategoryService } from '../services/category.service';
 import { Category } from '../models/category.model';
 import { UpdateCategoryRequest } from '../models/update-category-request.model';
 import { categoryActions } from 'src/app/core/ngrx-store';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { endPoints, IGetApi, IPayloadApi, StoreRepoService } from 'src/app/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-edit-category',
     templateUrl: './edit-category.component.html',
     styleUrls: ['./edit-category.component.scss'],
-    standalone: false
+     standalone: true,
+        imports: [CommonModule, ReactiveFormsModule]
 })
 export class EditCategoryComponent implements OnInit, OnDestroy {
   categoryForm?:FormGroup = new FormGroup({});

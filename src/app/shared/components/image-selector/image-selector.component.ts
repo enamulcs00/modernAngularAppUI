@@ -1,14 +1,19 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ImageService } from './image.service';
 import { Observable } from 'rxjs';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { BlogImage } from 'src/app/core/models/blog-image.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-image-selector',
     templateUrl: './image-selector.component.html',
     styleUrls: ['./image-selector.component.scss'],
-    standalone: false
+   standalone: true,
+  imports: [
+    CommonModule,
+    FormsModule   
+  ]
 })
 export class ImageSelectorComponent implements OnInit {
   private file?: File;
